@@ -328,7 +328,7 @@
         <h1>🚀 Keyword Folder Generator</h1>
         <p class="subtitle">Upload file keywords.txt để tạo cấu trúc thư mục với mã random độc nhất cho mỗi file</p>
 
-        <!-- <div class="api-status" id="apiStatus">Đang kiểm tra kết nối...</div> -->
+        <div class="api-status" id="apiStatus">Đang kiểm tra kết nối...</div>/
 
         <div class="upload-area" id="uploadArea">
             <span class="upload-icon">📁</span>
@@ -362,7 +362,7 @@
 
     <script>
         // API Configuration
-        const API_URL = 'https://create-keyword-download-zip.onrender.com';
+        const API_URL = 'http://localhost:5000';
 
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
@@ -388,6 +388,7 @@
                 const data = await response.json();
 
                 if (data.status === 'ok') {
+                    apiStatus.textContent = '✅ Kết nối backend thành công';
                     apiStatus.className = 'api-status connected';
                 } else {
                     throw new Error('Backend không phản hồi');
@@ -535,6 +536,5 @@
         }
     </script>
 </body>
-
 
 </html>
